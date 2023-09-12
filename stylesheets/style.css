@@ -1,8 +1,13 @@
 /*CSS variable*/
 :root {
     --blue: #241f23;
-    --white: #ffffff;
+    --white: #dcd6d6;
 
+}
+
+/*Reset body margin*/
+body {
+    margin:0;
 }
 
 /*mobile version*/
@@ -11,6 +16,7 @@
     display: flex;
     flex-direction: column;
     font-family: Arial, serif;
+    margin-bottom:  72px;
 }
 
 .personalia {
@@ -23,6 +29,11 @@
 }
 
 .profile {
+    background-color: #FDFDFD;
+    width: 100%;
+}
+
+.test {
     background-color: #FDFDFD;
     width: 100%;
 }
@@ -89,6 +100,7 @@
     flex-direction: column;
     align-items: center;
     position: fixed;
+    z-index: 10;
     bottom: 0;
     left: 0;
     right: 0;
@@ -135,6 +147,27 @@
 .show{
     display: flex;
 }
+
+nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: #FDFDFD;
+    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+
+.navigation-image {
+    width: 35px;
+}
+
 
 
 @media only screen and (min-width: 800px) {

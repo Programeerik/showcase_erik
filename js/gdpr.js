@@ -3,20 +3,20 @@ class GDPR {
     constructor() {
         this.showContent();
         this.bindEvents();
-        if((this.cookieStatus() !== 'accept') || this.cookieStatus() !== 'reject') this.showGDPR();
+        if((this.getCookie("consent") !== 'accept')) this.showGDPR();
     }
 
     bindEvents() {
         let buttonAccept = document.querySelector('.gdpr-consent__button--accept');
         buttonAccept.addEventListener('click', () => {
-            this.cookieStatus('accept');
+            this.setCookie("consent","accept", 1);
             this.showContent();
             this.hideGDPR();
         });
 
         let buttonReject = document.querySelector('.gdpr-consent__button--reject');
         buttonReject.addEventListener('click', () => {
-            this.cookieStatus('reject');
+            this.setCookie("consent", "reject", 1);
             this.showContent();
             this.hideGDPR();
         });
@@ -24,7 +24,7 @@ class GDPR {
 
     showContent() {
         this.resetContent();
-        const status = this.cookieStatus() == null ? 'not-chosen' : this.cookieStatus();
+        const status = this.getCookie("consent") === "" ? 'not-chosen' : this.getCookie("consent")
         const element = document.querySelector(`.content-gdpr-${status}`);
         element.classList.add('show');
 
@@ -41,19 +41,6 @@ class GDPR {
             document.querySelector(c).classList.remove('show');
         }
     }
-
-
-
-    cookieStatus(status) {
-
-        if (status) localStorage.setItem('gdpr-consent-choice', status);
-
-//student uitwerking
-
-        return localStorage.getItem('gdpr-consent-choice');
-    }
-
-//student uitwerking
 
     hideGDPR(){
         document.querySelector(`.gdpr-consent`).classList.add('hide');
@@ -79,6 +66,13 @@ class GDPR {
             }
         }
         return "";
+    }
+
+    setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        let expires = "expires="+ d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
     }
 
 }
