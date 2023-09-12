@@ -1,26 +1,34 @@
+/*CSS variable*/
+:root {
+    --blue: #241f23;
+    --white: #ffffff;
+
+}
+
 /*mobile version*/
 
 .page {
     display: flex;
     flex-direction: column;
-    font-family: Arial;
+    font-family: Arial, serif;
 }
 
 .personalia {
-    background-color: #e7e8ec;
+    background-color: var(--blue);
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: var(--white);
 }
 
 .profile {
-    background-color: #faf8f8;
+    background-color: #FDFDFD;
     width: 100%;
 }
 
 .person-logo {
-    border: 4px solid black;
+    border: 4px solid white;
     border-radius: 50%;
     margin: 15px 0px 15px 0px;
     width: 20%;
@@ -33,7 +41,8 @@
 }
 
 .profile-content__category-title {
-    color: rgba(39, 140, 39, 0.96);
+    color: var(--blue);
+    font-weight: 900;
 }
 
 .profile-content__category--hidden-mobile {
@@ -46,7 +55,6 @@
 }
 
 .profile-content__element--hidden-mobile {
-    display: flex;
     flex-direction: column;
     display: none;
 }
@@ -63,10 +71,71 @@
 }
 
 .profile-content__institute {
-    color: rgba(39, 140, 39, 0.96);
-    margin-top: 0px;
+    color: rgba(49, 63, 191, 0.96);
+    margin-top: 0;
     font-size: 14px;
 }
+
+.person-properties_schoolname, .person-properties_years {
+    font-size: 0.8rem;
+}
+
+.person-properties p span {
+    color: #d1d2d3;
+}
+
+.gdpr-consent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid var(--blue);
+    border-radius: 15px 15px 15px 15px;
+    background-color: white;
+}
+
+.gdpr-consent__description{
+    display: flex;
+    justify-content: center;
+}
+
+.gdpr-consent__choice{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.gdpr-consent__button--accept {
+    background-color: #d5f5d5;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+
+.gdpr-consent__button--accept:hover {
+    background-color: #c5e3c5;
+}
+
+.gdpr-consent__button--reject {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: flex;
+}
+
 
 @media only screen and (min-width: 800px) {
 
@@ -102,12 +171,7 @@
         color: #5c6166;
         display: flex;
     }
-
-}
-
-
-/*student uitwerking*/
-@media only screen and (min-width: 800px) {
+    /*student uitwerking*/
     .personalia{
         width: 30%;
     }
