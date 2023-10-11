@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <title>CV Erik Leusink</title>
+    <link rel="stylesheet" href="stylesheets/game.css">
+    <script defer src="js/gdpr.js"></script>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="description" content="CV van Erik Leusink">
+    <style>
+        .centered-div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+    
+        .primary-button {
+            background-color: blue;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+    
+        .secondary-button {
+            background-color: white;
+            color: blue;
+            padding: 10px 20px;
+            border: 1px solid blue;
+            border-radius: 5px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+    
+</head>
+
+<body>
+<div class="content-gdpr-not-chosen hide" data-cy="gdpr-not-chosen">
+    <p data-cy="gdpr">Deze content wordt alleen getoond als gdpr consent niet is gekozen.</p>
+</div>
+    
+
+<div class="page content-gdpr-accept hide">
+    <section class="person-bar">
+        <img width="35" height="35" alt="Personal picture of Erik Leusink" class="person-logo" src="images/me.jpg">
+        <h1 class="person-name">Erik Leusink</h1>
+    </section>
+
+    <div id="turn-message" style="display: none;">
+        <p>Draai de telefoon om het spel te kunnen spelen.</p>
+    </div>
+
+    <div id="signin-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username"><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password"><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+    <section id="game-content" style="display: flex; justify-content: center;">
+        
+        <div class="centered-div">
+            <button class="primary-button" id="signin-button">Sign In</button>
+            <button class="secondary-button">Sign Up</button>
+        </div>
+    </section>
+    <nav-bar></nav-bar>
+</div>
+
+
+<div class="content-gdpr-reject hide">
+    <p>Deze content wordt alleen getoond als gdrp is verworpen.</p>
+</div>
+
+<section class="gdpr-consent hide">
+
+    <div class="gdpr-consent__description">
+        <p>Deze website gebruikt cookies.
+            We gebruiken cookies om content te personaliseren, voor social media en het analyseren
+            van verkeer op de website, advertenties.</p>
+    </div>
+
+    <div class="gdpr-consent__choice">
+        <button class="gdpr-consent__button--accept">Ja, natuurlijk</button>
+        <button class="gdpr-consent__button--reject" data-cy="decline-consent-button">Neu, misschien later</button>
+    </div>
+</section>
+
+</body>
+<script src="js/components/navigation.js"></script>
+<script src="js/components/app.js"></script>
+<script>
+    function checkOrientation() {
+        if (window.innerHeight > window.innerWidth) {
+            document.getElementById("turn-message").style.display = "block";
+            document.getElementById("game-content").style.display = "none";
+        } else {
+            document.getElementById("turn-message").style.display = "none";
+            document.getElementById("game-content").style.display = "flex";
+        }
+    }
+    window.onload = checkOrientation;
+    window.addEventListener("orientationchange", checkOrientation);
+    window.addEventListener("resize", checkOrientation);
+</script>
+<script>
+    // Get the modal
+    var modal = document.getElementById("signin-modal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("signin-button");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+    // Handle form submission
+    var form = document.querySelector('form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        var username = document.getElementById('username').value;
+        var password = document.getElementById('password').value;
+        // Send form data to server
+        // ...
+        // Close modal
+        modal.style.display = "none";
+    });
+</script>

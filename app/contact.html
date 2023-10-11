@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	  <meta charset="UTF-8">
+	  <title>CV Erik Leusink</title>
+	  <link rel="stylesheet" href="stylesheets/style.css">
+	  <script defer src="js/gdpr.js"></script>
+	  <script defer src="js/form.js"></script>
+	  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+	  <meta name="description" content="Pagina om contact op te nemen met Erik Leusink">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="content-gdpr-not-chosen hide">
+  <p>Deze content wordt alleen getoond als gdpr consent niet is gekozen.</p>
+</div>
+<div class="content-gdpr-reject hide">
+  <p>Deze content wordt alleen getoond als gdrp is verworpen.</p>
+</div>
+<div class="page content-gdpr-accept hide">
+  <section class="personalia">
+	<img width="180" height="180" alt="Personal picture of Erik Leusink" class="person-logo" src="images/me.jpg">
+	<h1 class="person-name">Erik Leusink</h1>
+	<div class="person-properties">
+	  <h2 class="">Opleiding</h2>
+	  <hr>
+	  <p>
+		<span class="person-properties_years">2017-2020</span>
+		<br/>
+		Media- en Applicatieontwikkeling
+		<br/>
+		<span class="person-properties_schoolname"> Hoornbeeck College Amersfoort </span>
+	  </p>
+	</div>
+	<div class="person-properties">
+	  <h2 class="">Skills</h2>
+	  <hr>
+	  <ul>
+		<li>HTML, CSS en Javascript</li>
+		<li>C#, Java, PHP</li>
+		<li>Eigenschap #3</li>
+	  </ul>
+	</div>
+	<div class="person-properties">
+	  <h2 class="">Skills</h2>
+	  <hr>
+	  <ul>
+		<li>HTML, CSS en Javascript</li>
+		<li>C#, Java, PHP</li>
+		<li>Eigenschap #3</li>
+	  </ul>
+	</div>
+  </section>
+  <section class="contact">
+	<form method="POST" class="form-contactpage">
+	  <div class="contact-form_group">
+		<div class="contact-form_group_firstname">
+		  <label for="firstname" >Voornaam</label>
+		  <input id="firstname" name="FirstName" type="text"/>
+		  </div>
+         	 <div class="contact-form_group_lastname">
+		  <label for="lastname">Achternaam</label>
+		  <input id="lastname" name="LastName" type="text"/>
+		</div>
+	  </div>
+	  <div class="contact-form_group">
+		<div class="contact-form_group_email">
+		  <label for="email" >E-mailadres</label>
+		  <input id="email" name="Email" type="email" autocomplete="true" required />
+		  <span class="erroremail" aria-live="polite"></span>
+		</div>
+		<div class="contact-form_group_phone-number">
+		  <label for="phonenumber">Telefoon nummer</label>
+		  <input id="phonenumber" name="PhoneNumber" type="text" required />
+		  <span class="error" aria-live="polite"></span>
+		</div>
+	  </div>
+	  <div class="contact-form_group">
+		<div class="contact-form_group_message">
+		  <label for="message">Bericht</label>
+		  <textarea id="message" name="Message">Hallo Erik, </textarea>
+		</div>
+	  </div>
+	  <div class="contact-form_group">
+		<div class="contact-form_group_numbers">
+		  <span class="number01"></span>
+		  <span> + </span>
+		  <span class="number02"></span>
+		</div>
+		<div class="contact-form_group_sum">
+		  <label for="solution">Voer de oplossing van de som in</label>
+		  <input type="number" id="solution" name="solution">
+		</div>
+	  </div>
+	  <div class="contact-form_group">
+		<input class="form-button form-button--reset" type="reset" value="Leeg maken">
+		<input class="form-button form-button--submit" type="submit" value="Verzenden">
+	  </div>
+	</form>
+  </section>
+  <nav-bar></nav-bar>
+</div>
+<section class="gdpr-consent hide">
+  <div class="gdpr-consent__description">
+	<p>Deze website gebruikt cookies.
+	  We gebruiken cookies om content te personaliseren, voor social media en het analyseren
+	  van verkeer op de website, advertenties.</p>
+  </div>
+  <div class="gdpr-consent__choice">
+	<button class="gdpr-consent__button--accept">Ja, natuurlijk</button>
+	<button class="gdpr-consent__button--reject">Neu, misschien later</button>
+  </div>
+</section>
+<script src="js/components/navigation.js"></script>
+<script>
+    const number01 = document.querySelector(".number01");
+    number01.innerHTML = Math.floor(Math.random() * 42);
+    const number02 = document.querySelector(".number02");
+    number02.innerHTML = Math.floor(Math.random() * 42);
+</script>
+</body>
+</html>

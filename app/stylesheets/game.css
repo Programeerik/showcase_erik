@@ -1,0 +1,106 @@
+/*CSS variable*/
+:root {
+    --blue: #241f23;
+    --white: #dcd6d6;
+
+}
+
+/*Reset body margin*/
+body {
+    margin:0;
+}
+
+/*mobile version*/
+.page {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, serif;
+    margin-bottom:  72px;
+}
+
+.person-logo {
+    border: 1px solid white;
+    border-radius: 50%;
+    margin: 15px 0 15px 0;
+    animation: glow 3s ease alternate;
+}
+
+.person-bar {
+    background-color: var(--blue);
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    color: var(--white);
+    padding: 0 1rem;
+}
+
+.person-bar h1 {
+    padding: 0 0 0 1rem;
+}
+
+.gdpr-consent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid var(--blue);
+    border-radius: 15px 15px 15px 15px;
+    background-color: white;
+}
+
+.gdpr-consent__description{
+    display: flex;
+    justify-content: center;
+}
+
+.gdpr-consent__choice{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.gdpr-consent__button--accept {
+    background-color: var(--blue);
+    color:white;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+
+.gdpr-consent__button--accept:hover {
+    background-color: #c5e3c5;
+}
+
+.gdpr-consent__button--reject {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid grey;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: flex;
+}
+
+
+@media only screen and (min-width: 800px) {
+
+    .page {
+        flex-direction: row;
+    }
+
+    .person-bar {
+        width: 100%;
+    }
+    
+}
